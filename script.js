@@ -1,15 +1,15 @@
 import { Snake } from "./Snake.js";
 
 const startBtn = document.getElementById('start');
-
 const canvas = document.getElementById('canvas')
 
+startBtn.addEventListener('click', (e) => {
+    start();
+})
+
 const c = canvas.getContext('2d');
-
 c.fillStyle = '#0adbe0'
-
-const snake = new Snake(240, 240, 1);
-
+const snake = new Snake(100, 100, 4);
 
 function animate() {
     snake.update();
@@ -21,12 +21,8 @@ function animate() {
 }
 
 function start() {
-    setInterval(animate, 1000);
+    setInterval(animate, 500);
 }
 
 snake.draw(c);
 
-
-startBtn.addEventListener('click', (e) => {
-    start();
-})
