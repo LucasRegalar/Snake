@@ -1,3 +1,5 @@
+import { collision } from "./collision.js";
+
 export class Snake {
     constructor(xPosition, yPosition, length) {
         this.x = xPosition;
@@ -24,16 +26,12 @@ export class Snake {
         this.x = this.x + this.dx;
         this.y = this.y + this.dy;
 
-        this.positionArr.push({ x: this.x, y: this.y });
-
-        if (
-            this.x + this.width > canvas.width ||
-            this.x < 0 ||
-            this.y + this.width > canvas.height ||
-            this.y < 0
-        ) {
+        if (collision(this.x, this.y, this.width, this.positionArr)) {
             this.alive = false;
         }
+
+        this.positionArr.push({ x: this.x, y: this.y });
+
         this.blockTurning = false;
     }
 
