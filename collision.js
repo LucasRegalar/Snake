@@ -1,7 +1,7 @@
 export function collision(x, y, width, positionArr) {
     if (
-        selfCollision(x, y, width) ||
-        wallCollision(x, y, positionArr)
+        wallCollision(x, y, width) ||
+        selfCollision(x, y, positionArr)
     ) {
         return true;
     }
@@ -9,7 +9,7 @@ export function collision(x, y, width, positionArr) {
     return false;
 }
 
-function selfCollision(x, y, width) {
+function wallCollision(x, y, width) {
     if (
         x + width > canvas.width ||
         x < 0 ||
@@ -22,7 +22,7 @@ function selfCollision(x, y, width) {
     return false;
 }
 
-function wallCollision(x, y, positionArr) {
+function selfCollision(x, y, positionArr) {
     if (positionArr.some(position => position.x === x && position.y === y)) {
         return true;
     }

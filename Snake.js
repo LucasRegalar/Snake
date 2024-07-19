@@ -31,13 +31,14 @@ export class Snake {
         }
 
         this.positionArr.push({ x: this.x, y: this.y });
+        this.positionArr = this.positionArr.slice(this.positionArr.length - this.length);
 
         this.blockTurning = false;
     }
 
     draw(c) {
-        const snakeElements = this.positionArr.slice(this.positionArr.length - this.length);
-        snakeElements.forEach(position => {
+        c.fillStyle = '#0adbe0';
+        this.positionArr.forEach(position => {
             c.fillRect(position.x, position.y, this.width, this.width);
             c.strokeRect(position.x, position.y, this.width, this.width);
         });
@@ -73,5 +74,9 @@ export class Snake {
                     break;
             }
         }
+    }
+
+    grow() {
+        this.length += 1;
     }
 }
