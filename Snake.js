@@ -13,6 +13,7 @@ export class Snake {
         this.length = length;
         this.width = 20;
         this.alive = true;
+        this.blockTurning = false;
 
         document.addEventListener('keydown', (e) => {
             this.turn(e);
@@ -33,33 +34,46 @@ export class Snake {
         ) {
             this.alive = false;
         }
+        this.blockTurning = false;
     }
 
     draw(c) {
         const snakeElements = this.positionArr.slice(this.positionArr.length - this.length);
         snakeElements.forEach(position => {
             c.fillRect(position.x, position.y, this.width, this.width);
+            c.strokeRect(position.x, position.y, this.width, this.width);
         });
     }
 
     turn(e) {
-        switch (e.key) {
-            case 'ArrowUp':
-                this.dx = 0;
-                this.dy = -20;
-                break;
-            case 'ArrowDown':
-                this.dx = 0;
-                this.dy = 20;
-                break;
-            case 'ArrowLeft':
-                this.dx = -20;
-                this.dy = 0;
-                break;
-            case 'ArrowRight':
-                this.dx = 20;
-                this.dy = 0;
-                break;
+        if (!this.blockTurning) {
+            this.blockTurning = true;
+            switch (e.key) {
+                case 'ArrowUp':
+                    if (this.dy === 0) {
+                        this.dx = 0;
+                        this.dy = -20;
+                    }
+                    break;
+                case 'ArrowDown':
+                    if (this.dy === 0) {
+                        this.dx = 0;
+                        this.dy = 20;
+                    }
+                    break;
+                case 'ArrowLeft':
+                    if (this.dx === 0) {
+                        this.dx = -20;
+                        this.dy = 0;
+                    }
+                    break;
+                case 'ArrowRight':
+                    if (this.dx === 0) {
+                        this.dx = 20;
+                        this.dy = 0;
+                    }
+                    break;
+            }
         }
     }
 }

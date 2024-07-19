@@ -9,6 +9,7 @@ startBtn.addEventListener('click', (e) => {
 
 const c = canvas.getContext('2d');
 c.fillStyle = '#0adbe0'
+c.strokeStyle = 'black'
 const snake = new Snake(100, 100, 4);
 
 function animate() {
