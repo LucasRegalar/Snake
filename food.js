@@ -7,7 +7,7 @@ export class Food {
     }
 
     draw(c) {
-        c.fillStyle = 'red'
+        c.fillStyle = 'red';
         c.fillRect(this.x, this.y, this.width, this.width);
         c.strokeRect(this.x, this.y, this.width, this.width);
     }
@@ -15,7 +15,5 @@ export class Food {
     regenerate() {
         this.x = Math.round(Math.random() * (canvas.width - 20) / 20) * 20;
         this.y = Math.round(Math.random() * (canvas.height - 20) / 20) * 20;
-        console.log(this.x);
-        console.log(this.y);
     }
 }

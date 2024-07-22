@@ -1,14 +1,28 @@
 :root {
-    --main-color: #0adbe0;
-    --second-color: #09989C;
+    --main-color: #0ae090;
+    --second-color: #09a168;
 }
 
 body {
+    background-color: black;
+    color: white;
+    display: flex;
+    margin: 50px auto 0 auto;
+    justify-content: center;
+    font-size: x-large;
+}
+
+.clm {
+    width: 400px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: black;
-    color: white;
+}
+
+.left-clm,
+.right-clm {
+    width: 200px;
+    justify-content: center;
 }
 
 #canvas {

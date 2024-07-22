@@ -36,8 +36,8 @@ export class Snake {
         this.blockTurning = false;
     }
 
-    draw(c) {
-        c.fillStyle = '#0adbe0';
+    draw(c, color) {
+        c.fillStyle = color;
         this.positionArr.forEach(position => {
             c.fillRect(position.x, position.y, this.width, this.width);
             c.strokeRect(position.x, position.y, this.width, this.width);

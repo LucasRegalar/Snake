@@ -9,13 +9,22 @@
 </head>
 
 <body>
-    <h1>Snake!!</h1>
-    <canvas id="canvas" width="300px" height="300px"></canvas>
-    <div>
-        <button id="startBtn" class="btn">Start</button>
-        <button id="refreshBtn" class="btn">Refresh</button>
+    <div class="clm left-clm">
+        <h2>Level <span id="currentLevel">1</span></h2>
+        <div>
+            <h2>Score <span id="score">0</span></h2>
+        </div>
     </div>
-    <p id="gameover" class="gameover">GAME OVER</p>
+    <div class="clm middle-clm">
+        <h1>Snake!!</h1>
+        <canvas id="canvas" width="300px" height="300px"></canvas>
+        <div>
+            <button id="startBtn" class="btn">Start</button>
+            <button id="refreshBtn" class="btn">Refresh</button>
+        </div>
+        <p id="gameover" class="gameover">GAME OVER</p>
+    </div>
+    <div class="clm right-clm"></div>
     <script type="module" src="script.js"></script>
 </body>
 
